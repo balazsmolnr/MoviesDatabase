@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './style/App.css';
 import MovieRow from './MovieCard';
 import apiConfig from './ApiKeys';
+import NavBar from './components/NavBar';
+import { Switch, Route } from 'react-router-dom';
+import SignIn from './components/auth/SignIn';
 
 class App extends Component {
     constructor(props) {
@@ -33,7 +36,6 @@ class App extends Component {
         if (searchTerm) {
             results.forEach(movie => {
                 movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
-                movie.background_img = "http://image.tmdb.org/t/p/w185" + movie.backdrop_path;
                 const movieRow = <MovieRow key={movie.id} movie={movie} />
                 movieRows.push(movieRow);
             });
@@ -75,22 +77,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <table className="titleBar">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
-                            </td>
-                            <td witdh="8">
-                                <h1>MoviesDB</h1>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <NavBar />
+                <Switch>
+                    <Route exact path='/signin' component={SignIn} />
+                </Switch>
                 <div className="searchBar">
                     <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
                 </div>
-                <div>
+                <div className="container">
                     {this.state.rows}
                 </div>
 

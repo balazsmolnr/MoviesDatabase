@@ -1,9 +1,21 @@
 ﻿.titleBar {
-    background-color: black;
-    display: flex;
+    background-color: gray;
     color: aliceblue;
-    padding-left: 16px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 15vh;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px black;
+    list-style: none;
+
+    text-decoration: none;
+
 }
+
 
 .searchBar {
     position: relative;
@@ -26,13 +38,6 @@
         font-weight: bold;
     }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
 html, body {
     margin: 0;
     background: white;
@@ -41,15 +46,22 @@ html, body {
     font-weight: 400;
 }
 
-.link {
-    display: block;
-    text-align: center;
-    color: #777;
-    text-decoration: none;
-    padding: 10px;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px;
 }
 
-.movie_card {
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+/*.movie_card {
     position: relative;
     display: flex;
     width: 100%;
@@ -59,8 +71,15 @@ html, body {
     border-radius: 10px;
     transition: all 0.4s;
     box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
-}
+}*/
 
+
+/*.movie_card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px;  
+
+}
     .movie_card:hover {
         transform: scale(1.02);
         box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
@@ -170,9 +189,9 @@ html, body {
     right: 0;
     background-size: cover;
     border-radius: 11px;
-}
+}*/
 
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
     .movie_header {
         width: 65%;
     }
@@ -217,4 +236,4 @@ html, body {
         background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
         display: inline-grid;
     }
-}
+}*/
