@@ -1,0 +1,82 @@
+﻿.nav-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #222;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px gray;
+    padding: 5px 20px;
+}
+
+.nav-area > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex: 3;
+}
+
+.nav-area li {
+    margin-right: 1em;
+    line-height: 30px;
+}
+
+.nav-area li a{
+    padding: 10px;
+    font-family: poppins;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-area li a:hover {
+    text-decoration: underline;
+
+}
+
+.nav-area > form {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.nav-area input {
+    flex: 1;
+    border-radius: 25px;
+    border: 0;
+}
+
+.nav-area button {
+    background: #262626;
+    border: 0;
+    border-radius: 1em;
+    color: #fff;
+    padding: 8px 20px;
+    margin-left: 3em;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .nav-area {
+        flex-direction: column;
+    }
+
+        .nav-area ul {
+            flex-direction: row;
+            margin-bottom: 1em;
+        }
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-area{
+        flex-direction: column;
+    }
+
+    .nav-area ul{
+        flex-direction: row;
+        margin-bottom: 1em;
+    }
+
+    .nav-area li {
+        padding: 0;
+        font-size: 11px;
+    }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style/App.css';
 import MovieRow from './MovieCard';
 import apiConfig from './ApiKeys';
-import NavBar from './components/NavBar';
+import NavMenu from './components/NavMenu';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
 
@@ -77,10 +77,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <NavBar />
-                <Switch>
-                    <Route exact path='/signin' component={SignIn} />
-                </Switch>
+                <NavMenu />
                 <div className="searchBar">
                     <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
                 </div>

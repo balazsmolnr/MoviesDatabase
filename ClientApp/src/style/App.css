@@ -1,44 +1,4 @@
-﻿.titleBar {
-    background-color: gray;
-    color: aliceblue;
-
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    
-
-    height: 15vh;
-    font-weight: bold;
-    text-shadow: 3px 3px 3px black;
-    list-style: none;
-
-    text-decoration: none;
-
-}
-
-
-.searchBar {
-    position: relative;
-    background: rgba(0,0,0, 0.6);
-    max-width: 550px;
-    width: 100%;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-    .searchBar .inputField {
-        width: 100%;
-        padding: 15px 20px;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
+﻿
 html, body {
     margin: 0;
     background: white;
@@ -54,6 +14,7 @@ html, body {
 }
 
 
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
 
 * {
@@ -61,140 +22,11 @@ html, body {
     margin: 0;
 }
 
-
-/*.movie_card {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 10px;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: all 0.4s;
-    box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
-}*/
-
-
-/*.movie_card {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px -15px;  
-
-}
-    .movie_card:hover {
-        transform: scale(1.02);
-        box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
-        transition: all 0.4s;
-    }
-
-.info_section {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    border-radius: 10px;
-}
-
-.movie_header {
-    position: relative;
-    padding: 25px;
-    height: 40%;
-}
-
-    .movie_header h1 {
-        color: black;
-        font-weight: 400;
-    }
-
-    .movie_header h4 {
-        color: #555;
-        font-weight: 400;
-    }
-
-.rate {
-    display: inline-block;
-    margin-top: 15px;
-    color: #555;
-    padding: 5px;
-    border-radius: 5px;
-    border: 3px solid rgba(0,0,0,0.05);
-    background-color: rgb(255, 230, 0);
-    font-weight: bold;
-}
-
-.release_date {
-    display: inline-block;
-    color: #959595;
-    margin-left: 10px;
-}
-
-
-.type {
-    display: inline-block;
-    color: #959595;
-    margin-left: 10px;
-}
-
-.locandina {
-    position: relative;
-    float: left;
-    margin-right: 20px;
-    height: 120px;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
-    border-radius: 10px;
-}
-
-.movie_desc {
-    padding: 25px;
-    height: 50%;
-}
-
-.text {
-    color: #545454;
-}
-
-.movie_social {
-    height: 10%;
-    padding-left: 15px;
-    padding-bottom: 20px;
-}
-
-    .movie_social ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .movie_social li {
-        display: inline-block;
-        color: rgba(0,0,0,0.3);
-        transition: color 0.3s;
-        transition-delay: 0.15s;
-        margin: 0 10px;
-    }
-
-    .movie_social:hover {
-        transition: color 0.3s;
-        color: rgba(0,0,0,0.7);
-    }
-
-    .movie_social i {
-        font-size: 19px;
-        cursor: pointer;
-    }
-
-.blur_back {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    height: 100%;
-    right: 0;
-    background-size: cover;
-    border-radius: 11px;
-}*/
-
 @media screen and (min-width: 768px) {
-    .titleBar {
+    
+    .container {
         display: flex;
+        flex-wrap:wrap;
     }
 }
 
