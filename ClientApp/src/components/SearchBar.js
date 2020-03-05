@@ -1,11 +1,15 @@
 ﻿import React from 'react';
 import '../style/SearchBox.css';
 
-function Search() {
+function Search({ changeHandler }) {
     return (
 
         <section className="searchbox-wrap">
-            <input type="text" placeholder="Search for a movie..." className="searchBox" />
+            <input
+                type="text"
+                placeholder="Search for a movie..."
+                className="searchBox"
+                onChange={changeHandler}/>
         </section>
     )
 }

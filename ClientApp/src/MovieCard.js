@@ -9,7 +9,7 @@ class MovieRow extends React.Component {
 
     render() {
         return (
-            <div className="movie_card" key={this.props.movie.id} id="bright">
+            <div className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                 <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
                 <h1 className="movie_title">{this.props.movie.title}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>

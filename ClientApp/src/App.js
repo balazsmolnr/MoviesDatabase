@@ -84,6 +84,11 @@ class App extends Component {
                 <div className="container">
                     {this.state.rows}
                 </div>
+                <div className="modal">
+                    <div className="modal-content">
+
+                    </div>
+                </div>
 
             </div>
         );

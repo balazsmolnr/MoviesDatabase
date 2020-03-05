@@ -2,10 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: #222;
+    background-color: rgba(0,0,0,0.7);
     font-weight: bold;
-    text-shadow: 3px 3px 3px gray;
-    padding: 5px 20px;
+    /*text-shadow: 3px 3px 3px gray;*/
+    /*padding: 5px 20px;*/
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .nav-area > ul {
@@ -21,15 +29,16 @@
     line-height: 30px;
 }
 
-.nav-area li a{
-    padding: 10px;
-    font-family: poppins;
-    text-decoration: none;
-    text-transform: uppercase;
-}
+    .nav-area li a {
+        padding: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
 
 .nav-area li a:hover {
     text-decoration: underline;
+    transform: scale(1.2);
 
 }
 
