@@ -86,9 +86,11 @@ class App extends Component {
 
 
     nextPage = () => {
-        this.setState({
-            page_num: this.state.page_num += 1
-        }, () => this.getTopRatedMovies())
+        if (this.state.page_num < this.state.total_pages) {
+            this.setState({
+                page_num: this.state.page_num += 1
+            }, () => this.getTopRatedMovies())
+        }
     }
 
 
@@ -103,20 +105,23 @@ class App extends Component {
 
 
     render() {
-        console.log(this.state.all_movies);
-        console.log(this.state.page_num);
         return (
             <div>
                 <NavMenu />
                 <div className="searchBar">
                     <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
                 </div>
+                <div className="pagination">
+                    <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
+                    <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
+                </div>
                 <div className="container">
                     {this.state.movies}
                 </div>
-                <button onClick={this.previousPage}>Previous Page</button>
-                <button onClick={this.nextPage}>Next Page</button>
-
+                <div className="pagination">
+                    <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
+                    <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
+                </div>
 
             </div>
         );
