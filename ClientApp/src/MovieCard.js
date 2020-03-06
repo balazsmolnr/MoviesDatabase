@@ -30,10 +30,11 @@ class MovieCard extends React.Component {
                 <div className="modal-wrap">
                     <Modal show={this.state.show} className="modal-content">
                         <Modal.Header closeButton>
-                            <Modal.Title>{this.props.movie.title}</Modal.Title>
+                            <Modal.Title>{this.props.movie.title} | {this.props.movie.vote_average}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <h2>{this.props.movie.overview}</h2>
+                            <img>{this.props.movie.poster_src}</img>
+                            <p>{this.props.movie.overview}</p>
                         </Modal.Body>
                     </Modal>
                 </div>

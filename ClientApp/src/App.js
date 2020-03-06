@@ -5,14 +5,19 @@ import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
-import MovieModal from './components/MovieModal';
 
 class App extends Component {
     constructor(props) {
 
         super(props);
 
-        this.state = {};
+        this.state =
+        {
+            movies: [],
+            total_pages: null,
+            page_num: 1,
+
+        };
 
         var inputField = document.getElementsByClassName("inputField").value;
 
@@ -49,7 +54,7 @@ class App extends Component {
 
 
     getTopRatedMovies = async () => {
-        const urlString = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiConfig.tmdbKey}&language=en-US&page=1`
+        const urlString = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
 
 
         const response = await fetch(urlString);
@@ -66,16 +71,40 @@ class App extends Component {
         });
 
         this.setState({
-            rows: movieRows
+            movies: movieRows,
+            total_pages: jsonResponse.total_pages
         })
     }
+
+
 
     changeHandler(event) {
         const searchTerm = event.target.value;
         this.getSearchTerm(searchTerm);
     }
 
+
+
+    nextPage = () => {
+        this.setState({
+            page_num: this.state.page_num += 1
+        }, () => this.getTopRatedMovies())
+    }
+
+
+    previousPage = () => {
+
+        if (this.state.page_num !== 1) {
+            this.setState({
+                page_num: this.state.page_num -= 1
+            }, () => this.getTopRatedMovies())
+        }
+    }
+
+
     render() {
+        console.log(this.state.all_movies);
+        console.log(this.state.page_num);
         return (
             <div>
                 <NavMenu />
@@ -83,8 +112,10 @@ class App extends Component {
                     <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
                 </div>
                 <div className="container">
-                    {this.state.rows}
+                    {this.state.movies}
                 </div>
+                <button onClick={this.previousPage}>Previous Page</button>
+                <button onClick={this.nextPage}>Next Page</button>
 
 
             </div>
