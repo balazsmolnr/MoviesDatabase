@@ -39,6 +39,7 @@
 .nav-area li a:hover {
     text-decoration: underline;
     transform: scale(1.2);
+    color:antiquewhite;
 
 }
 

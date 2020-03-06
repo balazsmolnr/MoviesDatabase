@@ -21,6 +21,7 @@
         box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
         transition: all 0.2s;
         border: solid #14d4db;
+        border-width: 1px; 
         filter: contrast(100%);
     }
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './style/App.css';
-import MovieRow from './MovieCard';
+import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
+import MovieModal from './components/MovieModal';
 
 class App extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class App extends Component {
         if (searchTerm) {
             results.forEach(movie => {
                 movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
-                const movieRow = <MovieRow key={movie.id} movie={movie} />
+                const movieRow = <MovieCard key={movie.id} movie={movie} />
                 movieRows.push(movieRow);
             });
             this.setState({
@@ -60,7 +61,7 @@ class App extends Component {
 
         results.forEach(movie => {
             movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path
-            const movieRow = <MovieRow key={movie.id} movie={movie} />
+            const movieRow = <MovieCard key={movie.id} movie={movie} />
             movieRows.push(movieRow);
         });
 
@@ -84,11 +85,7 @@ class App extends Component {
                 <div className="container">
                     {this.state.rows}
                 </div>
-                <div className="modal">
-                    <div className="modal-content">
 
-                    </div>
-                </div>
 
             </div>
         );
