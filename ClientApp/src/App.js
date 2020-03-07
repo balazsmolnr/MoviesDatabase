@@ -3,8 +3,6 @@ import './style/App.css';
 import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
-import { Switch, Route } from 'react-router-dom';
-import SignIn from './components/auth/SignIn';
 
 class App extends Component {
     constructor(props) {
@@ -113,6 +111,7 @@ class App extends Component {
                 </div>
                 <div className="pagination">
                     <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
+                    <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
                     <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
                 </div>
                 <div className="container">
@@ -120,6 +119,7 @@ class App extends Component {
                 </div>
                 <div className="pagination">
                     <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
+                    <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
                     <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
                 </div>
 

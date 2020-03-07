@@ -12,7 +12,7 @@ const NavMenu = () => {
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
-
+            
             <Search />
         </nav>
     )

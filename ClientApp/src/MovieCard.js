@@ -1,6 +1,7 @@
 ﻿import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
 import './style/MovieCard.css';
+import { Modal } from 'react-bootstrap';
+
 
 class MovieCard extends React.Component {
     constructor() {
@@ -17,32 +18,34 @@ class MovieCard extends React.Component {
     }
 
     handleModal() {
-        this.setState({show:!this.state.show})
+        this.setState({ show: !this.state.show })
     }
 
     render() {
+        console.log(this.state.show);
         return (
             <div onClick={() => { this.handleModal() }} className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                 <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
                 <h1 className="movie_title">{this.props.movie.title}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>
                 <p className="release_date">{this.props.movie.release_date}</p>
-                <div className="modal-wrap">
-                    <Modal show={this.state.show} className="modal-content">
-                        <Modal.Header closeButton>
-                            <Modal.Title>{this.props.movie.title} | {this.props.movie.vote_average}</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <img>{this.props.movie.poster_src}</img>
-                            <p>{this.props.movie.overview}</p>
-                        </Modal.Body>
-                    </Modal>
-                </div>
+                <Modal show={this.state.show} size="lg">
+                    <Modal.Header closeButton>
+                        <h2>{this.props.movie.title}</h2>
+                    </Modal.Header>
+                    <Modal.Body classNamee="modal-content">
+                        <img className="modal_poster" alt="poster" src={this.props.movie.poster_src} />
+                        <h1 className="movie_title">{this.props.movie.title}</h1>
+                        <span className="rate">{this.props.movie.vote_average}</span>
+                        <p className="release_date"> | {this.props.movie.release_date}</p>
+                        <p>{this.props.movie.overview}</p>
+                    </Modal.Body>
+                </Modal>
             </div>
         )
     }
 
-  
+
 }
 
 export default MovieCard;

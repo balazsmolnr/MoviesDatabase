@@ -62,6 +62,16 @@
 
 }
 
+
+.modal-content {
+    background-color: rgba(0,0,0,0.6);
+    color: white;    
+    border-radius: 0.5rem;
+}
+
+
+
+
 @media screen and (min-width: 768px) {
     .movie_header {
         width: 65%;
