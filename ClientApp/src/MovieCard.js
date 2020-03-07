@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import './style/MovieCard.css';
 import { Modal } from 'react-bootstrap';
+import { Row } from 'reactstrap';
 
 
 class MovieCard extends React.Component {
@@ -29,16 +30,27 @@ class MovieCard extends React.Component {
                 <h1 className="movie_title">{this.props.movie.title}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>
                 <p className="release_date">{this.props.movie.release_date}</p>
-                <Modal show={this.state.show} size="lg">
+                <Modal show={this.state.show} size="lg" classNamee="modal-content">
                     <Modal.Header closeButton>
-                        <h2>{this.props.movie.title}</h2>
+                        <h2 className="movie_title">{this.props.movie.title}</h2>
                     </Modal.Header>
-                    <Modal.Body classNamee="modal-content">
-                        <img className="modal_poster" alt="poster" src={this.props.movie.poster_src} />
-                        <h1 className="movie_title">{this.props.movie.title}</h1>
-                        <span className="rate">{this.props.movie.vote_average}</span>
-                        <p className="release_date"> | {this.props.movie.release_date}</p>
-                        <p>{this.props.movie.overview}</p>
+                    <Modal.Body>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img className="modal_poster" src={this.props.movie.poster_src} />
+                                    </td>
+                                    <td/>
+                                    <td>
+                                        <p className="overview">{this.props.movie.overview}</p>
+                                        <br/>
+                                        <span className="rate">{this.props.movie.vote_average}</span>
+                                        <p className="release_date"> | {this.props.movie.release_date}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </Modal.Body>
                 </Modal>
             </div>
