@@ -3,7 +3,7 @@ import '../style/NavMenu.css';
 import Search from './SearchBar';
 
 
-const NavMenu = () => {
+const NavMenu = (props) => {
     return (
         <nav className="nav-area">
             <ul className="menu">
@@ -12,8 +12,8 @@ const NavMenu = () => {
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
-            
-            <Search />
+
+            <Search changeInput={props.changeInput} />
         </nav>
     )
 }

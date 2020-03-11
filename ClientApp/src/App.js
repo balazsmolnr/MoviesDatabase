@@ -4,6 +4,7 @@ import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
 import Search from './components/SearchBar';
+import Pagination from './components/Pagination';
 
 class App extends Component {
     constructor(props) {
@@ -124,21 +125,16 @@ class App extends Component {
         this.setState({
             selected_category: e.target.value
         }, () => this.fetchMovies())
-        console.log(this.state.selected_category)
     }
     
 
     render() {
         return (
             <div>
-                <NavMenu />
-                <div className="pagination">
-                    <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
-                    <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
-                    <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
-                </div>
+                <NavMenu changeInput={this.changeHandler} />
+                <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
                 <div className="dropdown" >
-                    <label>Sort by...</label>
+                    <span>Select category...</span>
                     <select
                         className="dropdown-content"
                         onChange={this.changeCategory}>
@@ -147,20 +143,12 @@ class App extends Component {
                             ))}
                     </select>
                 </div>
-                <div className="searchBar">
-                    <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
-                </div>
-                <Search onResult={results => {
-                    this.setState({ movies:results})
-                }} />
+                <Search changeInput={this.changeHandler.bind(this)} />
                 <div className="container">
                     {this.state.movies}
                 </div>
-                <div className="pagination">
-                    <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
-                    <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
-                    <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
-                </div>
+                <Pagination nextPage={this.nextPage} previousPage={this.previousPage} />
+
 
             </div>
         );

@@ -30,10 +30,7 @@ class MovieCard extends React.Component {
                 <p className="release_date">{this.props.movie.release_date}</p>
                 <Modal show={this.state.show}
                     size="lg"
-                    classNamee="modal-content"
-                    style={{
-                        backgroundImage:"url(" + this.props.backdrop_src +")"
-                    }}>
+                    classNamee="modal-content">
                     <Modal.Header closeButton>
                         <h2 className="movie_title">{this.props.movie.title}</h2>
                     </Modal.Header>
