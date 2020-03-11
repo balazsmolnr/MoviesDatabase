@@ -3,6 +3,7 @@ import './style/App.css';
 import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
+import Search from './components/SearchBar';
 
 class App extends Component {
     constructor(props) {
@@ -14,7 +15,13 @@ class App extends Component {
             movies: [],
             total_pages: null,
             page_num: 1,
-
+            selected_category: 'top_rated',
+            options: [
+                { value: 'top_rated', label: 'Top rated' },
+                { value: 'upcoming', label: 'Upcoming' },
+                { value: 'popular', label: 'Popular' },
+                { value: 'now_playing', label: 'Now playing' }
+            ]
         };
 
         var inputField = document.getElementsByClassName("inputField").value;
@@ -23,12 +30,12 @@ class App extends Component {
             this.getSearchTerm();
         }
 
-        this.getTopRatedMovies();
+        this.fetchMovies();
 
     }
 
     getSearchTerm = async (searchTerm) => {
-        const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${apiConfig.tmdbKey}&language=en-US&page=1&query=` + searchTerm;
+        const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
 
         const response = await fetch(urlString);
         const jsonResponse = await response.json();
@@ -39,20 +46,26 @@ class App extends Component {
 
         if (searchTerm) {
             results.forEach(movie => {
-                movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
+                if (movie.poster_path == null) {
+                    movie.poster_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"
+                }
+                else {
+                    movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
+                    }
                 const movieRow = <MovieCard key={movie.id} movie={movie} />
                 movieRows.push(movieRow);
             });
             this.setState({
-                rows: movieRows
+                movies: movieRows,
+                total_pages: jsonResponse.total_pages
             })
         }
 
     }
 
 
-    getTopRatedMovies = async () => {
-        const urlString = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
+    fetchMovies = async () => {
+        const urlString = `https://api.themoviedb.org/3/movie/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
 
 
         const response = await fetch(urlString);
@@ -63,7 +76,13 @@ class App extends Component {
         var movieRows = []
 
         results.forEach(movie => {
-            movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path
+            if (movie.poster_path == null) {
+                movie.poster_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"
+            }
+            else {
+                movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
+            }
+            movie.backdrop_src = "https://image.tmdb.org/t/p/original" + movie.backdrop_path
             const movieRow = <MovieCard key={movie.id} movie={movie} />
             movieRows.push(movieRow);
         });
@@ -87,7 +106,7 @@ class App extends Component {
         if (this.state.page_num < this.state.total_pages) {
             this.setState({
                 page_num: this.state.page_num += 1
-            }, () => this.getTopRatedMovies())
+            }, () => this.fetchMovies())
         }
     }
 
@@ -97,23 +116,43 @@ class App extends Component {
         if (this.state.page_num !== 1) {
             this.setState({
                 page_num: this.state.page_num -= 1
-            }, () => this.getTopRatedMovies())
+            }, () => this.fetchMovies())
         }
     }
 
+    changeCategory = (e) => {
+        this.setState({
+            selected_category: e.target.value
+        }, () => this.fetchMovies())
+        console.log(this.state.selected_category)
+    }
+    
 
     render() {
         return (
             <div>
                 <NavMenu />
-                <div className="searchBar">
-                    <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
-                </div>
                 <div className="pagination">
                     <a className="pageBtn" onClick={this.previousPage}>&#8249;</a>
                     <img alt="app_icon" src="https://img.icons8.com/cotton/64/000000/cinema-.png"></img>
                     <a className="pageBtn" onClick={this.nextPage}>&#8250;</a>
                 </div>
+                <div className="dropdown" >
+                    <label>Sort by...</label>
+                    <select
+                        className="dropdown-content"
+                        onChange={this.changeCategory}>
+                        {this.state.options.map(item => (
+                            <option key={item.label} value={item.value}>{item.label}</option>
+                            ))}
+                    </select>
+                </div>
+                <div className="searchBar">
+                    <input onChange={this.changeHandler.bind(this)} className="inputField" placeholder="What are you looking for?"></input>
+                </div>
+                <Search onResult={results => {
+                    this.setState({ movies:results})
+                }} />
                 <div className="container">
                     {this.state.movies}
                 </div>

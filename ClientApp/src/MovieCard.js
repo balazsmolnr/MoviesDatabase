@@ -1,8 +1,7 @@
 ﻿import React from 'react';
 import './style/MovieCard.css';
 import { Modal } from 'react-bootstrap';
-import { Row } from 'reactstrap';
-
+    
 
 class MovieCard extends React.Component {
     constructor() {
@@ -23,14 +22,18 @@ class MovieCard extends React.Component {
     }
 
     render() {
-        console.log(this.state.show);
         return (
             <div onClick={() => { this.handleModal() }} className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                 <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
                 <h1 className="movie_title">{this.props.movie.title}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>
                 <p className="release_date">{this.props.movie.release_date}</p>
-                <Modal show={this.state.show} size="lg" classNamee="modal-content">
+                <Modal show={this.state.show}
+                    size="lg"
+                    classNamee="modal-content"
+                    style={{
+                        backgroundImage:"url(" + this.props.backdrop_src +")"
+                    }}>
                     <Modal.Header closeButton>
                         <h2 className="movie_title">{this.props.movie.title}</h2>
                     </Modal.Header>
@@ -56,7 +59,6 @@ class MovieCard extends React.Component {
             </div>
         )
     }
-
 
 }
 
