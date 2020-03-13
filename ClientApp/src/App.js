@@ -17,12 +17,6 @@ class App extends Component {
             total_pages: null,
             page_num: 1,
             selected_category: 'top_rated',
-            options: [
-                { value: 'top_rated', label: 'Top rated' },
-                { value: 'upcoming', label: 'Upcoming' },
-                { value: 'popular', label: 'Popular' },
-                { value: 'now_playing', label: 'Now playing' }
-            ]
         };
 
         var inputField = document.getElementsByClassName("inputField").value;
@@ -131,19 +125,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <NavMenu changeInput={this.changeHandler} />
+                <NavMenu changeInput={this.changeHandler.bind(this)} changeCategory={this.changeCategory} />
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
-                <div className="dropdown" >
-                    <span>Select category...</span>
-                    <select
-                        className="dropdown-content"
-                        onChange={this.changeCategory}>
-                        {this.state.options.map(item => (
-                            <option key={item.label} value={item.value}>{item.label}</option>
-                            ))}
-                    </select>
-                </div>
-                <Search changeInput={this.changeHandler.bind(this)} />
                 <div className="container">
                     {this.state.movies}
                 </div>
