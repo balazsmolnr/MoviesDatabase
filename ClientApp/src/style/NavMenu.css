@@ -36,11 +36,12 @@
         font-size: 25px;
     }
 
-.nav-area li a:hover {
-    text-decoration: underline;
-    transform: scale(1.2);
-    color:antiquewhite;
-
+.nav-area li a:hover, .dropdown:hover .dropbtn {
+    /* text-decoration: underline; */
+    /* transform: scale(1.2); */
+    color:white;
+    background-color: #555;
+    border-radius: 25px;
 }
 
 .nav-area > form {
@@ -55,33 +56,26 @@
     border: 0;
 }
 
-.dropdown {
-    /*margin-left: 120px;
-    padding: 10px;*/
-
-    position: relative;
-    display: inline-block;
+.select-box {
     color: white;
-}
-
-.dropdown-content {
-    color: white;
-    display: none;
-    position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
-    min-width: 160px;
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-
-.dropdown:hover .dropdown-content {
     display: block;
+    width: 20%;
+    font-size: 17px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.select-box option {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+.nav-area .icon {
+    display: none;
+}
+
+/* @media only screen and (min-width: 768px) and (max-width: 991px) {
     .nav-area {
         flex-direction: column;
     }
@@ -90,20 +84,35 @@
             flex-direction: row;
             margin-bottom: 1em;
         }
-}
+} */
 
-@media only screen and (max-width: 767px) {
-    .nav-area{
-        flex-direction: column;
+@media screen and (max-width: 600px) {
+    .nav-area.responsive {position: relative;}
+    .nav-area.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
     }
+    .nav-area.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .nav-area.responsive .dropdown {float: none;}
+    .nav-area.responsive .dropdown-content {position: relative;}
+    .nav-area.responsive .dropdown .dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
 
-    .nav-area ul{
-        flex-direction: row;
-        margin-bottom: 1em;
-    }
-
-    .nav-area li {
-        padding: 0;
-        font-size: 11px;
-    }
+@media only screen and (max-width: 600px) {
+    .nav-area.menu:not(:first-child), .dropdown .dropbtn {
+        display: none;
+      }
+      .nav-area a.icon {
+        float: right;
+        display: block;
+      }
 }

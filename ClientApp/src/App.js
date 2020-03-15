@@ -3,7 +3,6 @@ import './style/App.css';
 import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
-import Search from './components/SearchBar';
 import Pagination from './components/Pagination';
 
 class App extends Component {
@@ -17,6 +16,7 @@ class App extends Component {
             total_pages: null,
             page_num: 1,
             selected_category: 'top_rated',
+            selected_api: 'movie'
         };
 
         var inputField = document.getElementsByClassName("inputField").value;
@@ -30,23 +30,23 @@ class App extends Component {
     }
 
     getSearchTerm = async (searchTerm) => {
-        const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
-
-        const response = await fetch(urlString);
-        const jsonResponse = await response.json();
-        const results = jsonResponse.results;
-        console.log(results);
-
-        var movieRows = [];
-
         if (searchTerm) {
+            const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
+
+            const response = await fetch(urlString);
+            const jsonResponse = await response.json();
+            const results = jsonResponse.results;
+            console.log(results);
+
+            var movieRows = [];
+
             results.forEach(movie => {
                 if (movie.poster_path == null) {
                     movie.poster_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"
                 }
                 else {
                     movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
-                    }
+                }
                 const movieRow = <MovieCard key={movie.id} movie={movie} />
                 movieRows.push(movieRow);
             });
@@ -54,6 +54,9 @@ class App extends Component {
                 movies: movieRows,
                 total_pages: jsonResponse.total_pages
             })
+            }
+        else {
+            this.fetchMovies();
         }
 
     }
@@ -121,8 +124,15 @@ class App extends Component {
         }, () => this.fetchMovies())
     }
     
+    changeApi = (e) => {
+        this.setState({
+            selected_api: e.target.value
+        }, () => this.fetchMovies())
+    }
 
     render() {
+        console.log(this.state.total_pages)
+        console.log(this.state.page_num)
         return (
             <div>
                 <NavMenu changeInput={this.changeHandler.bind(this)} changeCategory={this.changeCategory} />
@@ -131,8 +141,6 @@ class App extends Component {
                     {this.state.movies}
                 </div>
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage} />
-
-
             </div>
         );
     }
