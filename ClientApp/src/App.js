@@ -31,7 +31,7 @@ class App extends Component {
 
     getSearchTerm = async (searchTerm) => {
         if (searchTerm) {
-            const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
+            const urlString = `https://api.themoviedb.org/3/search/${this.state.selected_api}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
 
             const response = await fetch(urlString);
             const jsonResponse = await response.json();
@@ -126,6 +126,7 @@ class App extends Component {
     
     changeApi = (e) => {
         this.setState({
+            selected_category: 'top_rated',
             selected_api: e.target.value
         }, () => this.fetchMovies())
     }

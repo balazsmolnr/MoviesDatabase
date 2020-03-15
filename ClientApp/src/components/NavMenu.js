@@ -41,6 +41,12 @@ const NavMenu = (props) => {
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
                 <select className="select-box"
+                        onChange={props.changeApi}>
+                        {options.map(item => (
+                            <option key={item.label} value={item.value}>{item.label}</option>
+                        ))}
+                </select>
+                <select className="select-box"
                         onChange={props.changeCategory}>
                             {props.selected === 'movie' ? movie_categories.map(item => (
                             <option key={item.label} value={item.value}>{item.label}</option>
@@ -48,12 +54,6 @@ const NavMenu = (props) => {
                             <option key={item.label} value={item.value}>{item.label}</option>
                         ))}
                         
-                </select>
-                <select className="select-box"
-                        onChange={props.changeApi}>
-                        {options.map(item => (
-                            <option key={item.label} value={item.value}>{item.label}</option>
-                        ))}
                 </select>
             </ul>
             <Search changeInput={props.changeInput} />
