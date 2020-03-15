@@ -4,12 +4,19 @@ import Search from './SearchBar';
 
 
 const NavMenu = (props) => {
-    const categories = [
+    const movie_categories = [
         { value: 'top_rated', label: 'Top rated' },
         { value: 'upcoming', label: 'Upcoming' },
         { value: 'popular', label: 'Popular' },
         { value: 'now_playing', label: 'Now playing' }
     ];
+
+    const tv_categories =[
+        { value: 'top_rated', label: 'Top rated'},
+        { value: 'popular', label: 'Popular'},
+        { value: 'on_the_air', label: 'On the air'},
+        { value: 'airing_today', label: 'Airing today'}
+    ]
 
     const options = [
         { value: 'movie', label: 'Movies' },
@@ -35,9 +42,12 @@ const NavMenu = (props) => {
                 <li><a href="#">Register</a></li>
                 <select className="select-box"
                         onChange={props.changeCategory}>
-                        {categories.map(item => (
+                            {props.selected === 'movie' ? movie_categories.map(item => (
+                            <option key={item.label} value={item.value}>{item.label}</option>
+                        )) : tv_categories.map(item => (
                             <option key={item.label} value={item.value}>{item.label}</option>
                         ))}
+                        
                 </select>
                 <select className="select-box"
                         onChange={props.changeApi}>

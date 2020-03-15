@@ -4,7 +4,7 @@ import '../style/SearchBox.css';
 const Search = (props) => {
     return (
 
-        <section className="searchbox">
+        <section className="search">
             <input
                 type="text"
                 placeholder="Search for a movie..."

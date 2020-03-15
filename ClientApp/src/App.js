@@ -63,7 +63,7 @@ class App extends Component {
 
 
     fetchMovies = async () => {
-        const urlString = `https://api.themoviedb.org/3/movie/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
+        const urlString = `https://api.themoviedb.org/3/${this.state.selected_api}/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
 
 
         const response = await fetch(urlString);
@@ -135,7 +135,7 @@ class App extends Component {
         console.log(this.state.page_num)
         return (
             <div>
-                <NavMenu changeInput={this.changeHandler.bind(this)} changeCategory={this.changeCategory} />
+                <NavMenu changeInput={this.changeHandler.bind(this)} changeCategory={this.changeCategory} changeApi={this.changeApi} selected={this.state.selected_api}/>
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
                 <div className="container">
                     {this.state.movies}

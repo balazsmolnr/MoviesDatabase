@@ -25,14 +25,14 @@ class MovieCard extends React.Component {
         return (
             <div onClick={() => { this.handleModal() }} className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                 <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
-                <h1 className="movie_title">{this.props.movie.title}</h1>
+                <h1 className="movie_title">{this.props.movie.title ? this.props.movie.title : this.props.movie.name}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>
-                <p className="release_date">{this.props.movie.release_date}</p>
+                <p className="release_date">{this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
                 <Modal show={this.state.show}
                     size="lg"
                     classNamee="modal-content">
                     <Modal.Header closeButton>
-                        <h2 className="movie_title">{this.props.movie.title}</h2>
+                        <h2 className="movie_title">{this.props.movie.title ? this.props.movie.title : this.props.movie.name}</h2>
                     </Modal.Header>
                     <Modal.Body>
                         <table>
@@ -46,7 +46,7 @@ class MovieCard extends React.Component {
                                         <p className="overview">{this.props.movie.overview}</p>
                                         <br/>
                                         <span className="rate">{this.props.movie.vote_average}</span>
-                                        <p className="release_date"> | {this.props.movie.release_date}</p>
+                                        <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
                                     </td>
                                 </tr>
                             </tbody>
