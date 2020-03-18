@@ -31,7 +31,7 @@ class App extends Component {
 
     getSearchTerm = async (searchTerm) => {
         if (searchTerm) {
-            const urlString = `https://api.themoviedb.org/3/search/${this.state.selected_api}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=` + searchTerm;
+            const urlString = `https://api.themoviedb.org/3/search/${this.state.selected_api}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}&query=${searchTerm}`;
 
             const response = await fetch(urlString);
             const jsonResponse = await response.json();
@@ -63,6 +63,7 @@ class App extends Component {
 
 
     fetchMovies = async () => {
+        
         const urlString = `https://api.themoviedb.org/3/${this.state.selected_api}/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
 
 
@@ -74,6 +75,7 @@ class App extends Component {
         var movieRows = []
 
         results.forEach(movie => {
+            console.log(movie);
             if (movie.poster_path == null) {
                 movie.poster_src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"
             }

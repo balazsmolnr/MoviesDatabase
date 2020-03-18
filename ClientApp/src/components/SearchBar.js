@@ -7,7 +7,7 @@ const Search = (props) => {
         <section className="search">
             <input
                 type="text"
-                placeholder="Search for a movie..."
+                placeholder="Search for..." 
                 className="searchBox"
                 onChange={props.changeInput}/>
         </section>
