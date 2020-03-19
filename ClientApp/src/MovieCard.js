@@ -27,7 +27,7 @@ class MovieCard extends React.Component {
                 <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
                 <h1 className="movie_title">{this.props.movie.title ? this.props.movie.title : this.props.movie.name}</h1>
                 <span className="rate">{this.props.movie.vote_average}</span>
-                <p className="release_date">{this.props.movie.release_date ? this.props.movie.release_date.substring(0,4) : this.props.movie.first_air_date.substring(0,4)}</p>
+                <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
                 <Modal show={this.state.show}
                     size="lg"
                     classNamee="modal-content">
@@ -46,7 +46,7 @@ class MovieCard extends React.Component {
                                         <p className="overview">{this.props.movie.overview}</p>
                                         <br/>
                                         <span className="rate">{this.props.movie.vote_average}</span>
-                                        <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date.substring(0,4) : this.props.movie.first_air_date.substring(0,4)}</p>
+                                        <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
                                     </td>
                                 </tr>
                             </tbody>

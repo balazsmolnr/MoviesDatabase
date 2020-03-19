@@ -36,10 +36,10 @@ const NavMenu = (props) => {
     return (
         <nav className="nav-area">
             <ul className="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a className="home-btn" href="#">Home</a></li>
+                <li><a className="menu-item" href="#">About</a></li>
+                <li><a className="menu-item" href="#">Login</a></li>
+                <li><a className="menu-item" href="#">Register</a></li>
                 <select className="select-box"
                         onChange={props.changeApi}>
                         {options.map(item => (
@@ -56,7 +56,7 @@ const NavMenu = (props) => {
                         
                 </select>
             </ul>
-            <Search changeInput={props.changeInput} />
+            <Search  className="search" changeInput={props.changeInput} />
             <a className="icon" onClick={makeNavbarResponsive()}>&#9776;</a>
         </nav>
     )
