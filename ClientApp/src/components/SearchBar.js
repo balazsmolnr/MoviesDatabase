@@ -9,7 +9,8 @@ const Search = (props) => {
                 type="text"
                 placeholder="Search for..." 
                 className="searchBox"
-                onChange={props.changeInput}/>
+                onChange={props.changeInput}
+                />
         </section>
     )
 }

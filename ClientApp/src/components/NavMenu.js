@@ -25,7 +25,7 @@ const NavMenu = (props) => {
 
     function makeNavbarResponsive() {
         var navbar = document.getElementsByClassName("nav-area");
-        if(navbar.className == "nav-area"){
+        if(navbar.className === "nav-area"){
             navbar.className += " responsive";
         }
         else {

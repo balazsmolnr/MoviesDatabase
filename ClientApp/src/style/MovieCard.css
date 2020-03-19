@@ -5,13 +5,10 @@
     min-width: 100px;
     padding: 15px;
     max-width: 200px;
-    /*display: flex;*/
-    /*flex-direction: column;*/
     cursor: pointer;
     align-items: center;
     border-radius: 20px;
     justify-content: center;
-    /*background-color: rgba(0,0,0,0.7);*/
     filter: contrast(60%);
     margin-bottom: 10px;
 }
