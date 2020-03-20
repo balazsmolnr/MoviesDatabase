@@ -14,6 +14,7 @@ As a user you can discover movies and tv shows by categories (e.g. popular, upco
 On the main page you can choose by:
 * Movies
 * Tv shows
+
 And their categories like:
 * Upcoming
 * Popular
