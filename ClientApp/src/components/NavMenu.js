@@ -38,8 +38,8 @@ const NavMenu = (props) => {
             <ul className="menu">
                 <li><a className="home-btn" href="#">Home</a></li>
                 <li><a className="menu-item" href="#">About</a></li>
-                <li><a className="menu-item" href="#">Login</a></li>
-                <li><a className="menu-item" href="#">Register</a></li>
+                <li><a className="menu-item" href="#" onClick={props.showLogModal}>Login</a></li>
+                <li><a className="menu-item" href="#" onClick={props.showRegModal}>Register</a></li>
                 <select className="select-box"
                         onChange={props.changeApi}>
                         {options.map(item => (

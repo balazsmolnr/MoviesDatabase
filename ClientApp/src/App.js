@@ -4,6 +4,8 @@ import MovieCard from './MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
 import Pagination from './components/Pagination';
+import RegistrationModal from './components/RegistrationModal';
+import LoginModal from './components/LoginModal';
 
 class App extends Component {
     constructor(props) {
@@ -17,7 +19,9 @@ class App extends Component {
             page_num: 1,
             selected_category: 'top_rated',
             selected_api: 'movie',
-            searchValue : ''
+            searchValue : '',
+            showModal : false,
+            showModalLog : false
         };
 
         this.fetchMovies();
@@ -66,6 +70,17 @@ class App extends Component {
     }
 
 
+    toggleModal = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    toggleModalLog = () => {
+        this.setState({
+            showModalLog : !this.state.showModalLog
+        })
+    }
 
     changeHandler(event) {
         const searchTerm = event.target.value;
@@ -121,12 +136,17 @@ class App extends Component {
 
 
     render() {
-        console.log(document.getElementsByClassName('searchBox').value)
-        console.log(this.state.total_pages)
-        console.log(this.state.page_num)
         return (
             <div>
-                <NavMenu changeInput={this.changeHandler.bind(this)} changeCategory={this.changeCategory} changeApi={this.changeApi} selected={this.state.selected_api}/>
+                {this.state.showModal ? <div className="back-drop"></div> : null}
+                <NavMenu changeInput={this.changeHandler.bind(this)} 
+                        changeCategory={this.changeCategory} 
+                        changeApi={this.changeApi} 
+                        selected={this.state.selected_api} 
+                        showRegModal={this.toggleModal} 
+                        showLogModal={this.toggleModalLog}/>
+                <RegistrationModal className="reg-modal" toggle={this.toggleModal} show={this.state.showModal}/>
+                <LoginModal className="log-modal" toggle={this.toggleModalLog} show={this.state.showModalLog} />
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
                 <div className="container">
                     {this.state.movies}
