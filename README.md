@@ -12,12 +12,12 @@ As a user you can discover movies and tv shows by categories (e.g. popular, upco
 
 # How to use
 On the main page you can choose by:
-*Movies
-*Tv shows
+* Movies
+* Tv shows
 And their categories like:
-*Upcoming
-*Popular
-*Top rated
+* Upcoming
+* Popular
+* Top rated
 .
 .
 .
