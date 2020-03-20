@@ -10,7 +10,7 @@ As a user you can discover movies and tv shows by categories (e.g. popular, upco
 * Bootstrap
 * MS SQL and Entity Framework (for database connection in the future)
 
-#How to use?
+# How to use
 On the main page you can choose by:
 *Movies
 *Tv shows
