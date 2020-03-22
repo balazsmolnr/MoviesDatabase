@@ -1,7 +1,7 @@
-.modal-container {
+.modal_container {
     background-color: rgba(0,0,0,0.9);
     z-index: 999;
-    width: 50%;
+    width: 60%;
     position: fixed;
     top: 20%;
     margin: auto;
@@ -9,15 +9,46 @@
     border-radius: 25px;
     border: solid #14d4db;
     border-width: 1px;
-    left: 25%;    
+    left: 20%
 }
+
+.rate {
+    display: inline-block;
+    /*margin-top: px;*/
+    color: #555;
+    /*padding: 5px;*/
+    border-radius: 5px;
+    border: 3px solid rgba(0,0,0,0.05);
+    background-color: rgb(255, 230, 0);
+    font-weight: bold;
+}
+
+.release_date {
+    display: inline-block;
+    color: #959595;
+    margin-left: 10px;
+}
+
+
+.modal_title {
+    color: white;
+}
+
+.modal_poster {
+    border-radius: 20px;
+}
+
+.overview{
+    font-size: large;
+}
+
+
 
 .header {
     color: white;
     height: 40px;
     line-height: 40px;
-    padding: 5px 20px;
-    text-align: right;
+    /* padding: 5px 20px; */
     margin-bottom: 30px;
 }
 
@@ -27,20 +58,18 @@
     padding: 0;
     margin-top: 10px;
     font-weight: bold;
+    text-align: left;
 }
 
 .body {
     padding: 10px 15px;
     text-align: center;
-}
-
-.input-field {
     color: white;
-    padding: 30px;
-
+    border-top: 1px solid grey;
 }
 
-.close-btn {
+
+.close_btn {
     cursor: pointer;
     position: absolute;
     top: 15px;
@@ -48,28 +77,6 @@
     font-size: 30px;
 }
 
-.close-btn:hover {
+.close_btn:hover {
     color: #14d4db;
-}
-
-.btn-cancel, .btn-register {
-    background: grey;
-    border: none;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: larger;
-    outline: none;
-    padding: 10px;
-    border-radius: 25px;
-    margin: 10px;
-}
-
-.btn-cancel:hover, .btn-register:hover {
-    background: #14d4db;
-}
-
-.footer {
-    float: right;
-    
 }

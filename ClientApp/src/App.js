@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
-import MovieCard from './MovieCard';
+import MovieCard from './components/MovieCard';
 import apiConfig from './ApiKeys';
 import NavMenu from './components/NavMenu';
 import Pagination from './components/Pagination';
@@ -20,7 +20,7 @@ class App extends Component {
             selected_category: 'top_rated',
             selected_api: 'movie',
             searchValue : '',
-            showModal : false,
+            showModalReg : false,
             showModalLog : false
         };
 
@@ -70,9 +70,9 @@ class App extends Component {
     }
 
 
-    toggleModal = () => {
+    toggleModalReg = () => {
         this.setState({
-            showModal: !this.state.showModal
+            showModalReg: !this.state.showModalReg
         })
     }
 
@@ -138,14 +138,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.showModal ? <div className="back-drop"></div> : null}
+                {this.state.showModalReg || this.state.showModalLog ? <div className="back-drop"></div> : null}
                 <NavMenu changeInput={this.changeHandler.bind(this)} 
                         changeCategory={this.changeCategory} 
                         changeApi={this.changeApi} 
                         selected={this.state.selected_api} 
-                        showRegModal={this.toggleModal} 
+                        showRegModal={this.toggleModalReg} 
                         showLogModal={this.toggleModalLog}/>
-                <RegistrationModal className="reg-modal" toggle={this.toggleModal} show={this.state.showModal}/>
+                <RegistrationModal className="reg-modal" toggle={this.toggleModalReg} show={this.state.showModalReg}/>
                 <LoginModal className="log-modal" toggle={this.toggleModalLog} show={this.state.showModalLog} />
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
                 <div className="container">
