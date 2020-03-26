@@ -36,7 +36,7 @@ const NavMenu = (props) => {
     return (
         <nav className="nav-area">
             <ul className="menu">
-                <li><a className="home-btn" href="#">Home</a></li>
+                <li><a className="home-btn" href="/">Home</a></li>
                 <li><a className="menu-item" href="#">About</a></li>
                 <li><a className="menu-item" href="#" onClick={props.showLogModal}>Login</a></li>
                 <li><a className="menu-item" href="#" onClick={props.showRegModal}>Register</a></li>

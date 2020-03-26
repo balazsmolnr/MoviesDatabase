@@ -21,11 +21,24 @@ class App extends Component {
             selected_api: 'movie',
             searchValue : '',
             showModalReg : false,
-            showModalLog : false
+            showModalLog : false,
+            videos : [],
+            genres: null
         };
 
         this.fetchMovies();
 
+    }
+
+    componentDidMount = async() => {
+        let urlString = `https://api.themoviedb.org/3/genre/${this.state.selected_api}/list?api_key=${apiConfig.tmdbKey}&language=en-US`
+        
+        const response = await fetch(urlString);
+        const jsonResponse = await response.json();
+        this.setState({
+            genres : jsonResponse
+        })
+        console.log(jsonResponse)
     }
 
     
@@ -40,7 +53,7 @@ class App extends Component {
         }
         else{
 
-            urlString = `https://api.themoviedb.org/3/${this.state.selected_api}/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&language=en-US&page=${this.state.page_num}`
+            urlString = `https://api.themoviedb.org/3/${this.state.selected_api}/${this.state.selected_category}?api_key=${apiConfig.tmdbKey}&append_to_response=videos&language=en-US&page=${this.state.page_num}`
         }
 
 
@@ -59,7 +72,7 @@ class App extends Component {
                 movie.poster_src = "http://image.tmdb.org/t/p/w185" + movie.poster_path;
             }
             movie.backdrop_src = "https://image.tmdb.org/t/p/original" + movie.backdrop_path
-            const movieRow = <MovieCard key={movie.id} movie={movie} />
+            const movieRow = <MovieCard key={movie.id} movie={movie} selected={this.state.selected_api} genres={this.state.genres}/>
             movieRows.push(movieRow);
         });
 

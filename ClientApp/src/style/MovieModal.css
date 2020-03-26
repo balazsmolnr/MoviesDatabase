@@ -3,13 +3,13 @@
     z-index: 999;
     width: 60%;
     position: fixed;
-    top: 20%;
+    top: 10%;
     margin: auto;
     padding: 20px;
     border-radius: 25px;
     border: solid #14d4db;
     border-width: 1px;
-    left: 20%
+    left: 20%;
 }
 
 .rate {
@@ -69,6 +69,12 @@
 }
 
 
+.video_player {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
 .close_btn {
     cursor: pointer;
     position: absolute;
@@ -79,4 +85,10 @@
 
 .close_btn:hover {
     color: #14d4db;
+}
+
+@media only screen and (max-width: 1000px){
+    .video_player {
+        width: 50%;
+    }
 }

@@ -78,6 +78,8 @@
 .nav-area .icon {
     display: none;
     font-weight: bold;
+    font-size: x-large;
+    color: white;
 }
 
 /* @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -111,7 +113,7 @@
   }
 
 @media only screen and (max-width: 1000px) {
-    .nav-area .menu-item, .select-box, .search {
+    .nav-area .menu-item{
         display: none;
       }
 
@@ -119,8 +121,15 @@
           float: left;
       }
 
+      .nav-area .search, .select-box{
+          position: relative;
+          margin: 0 auto;
+          width: 50%;
+      }
+
       .nav-area a.icon {
         float: right;
         display: block;
+        
       }
 }

@@ -1,34 +1,49 @@
 import React from 'react';
+import Player from 'react-player';
 import '../style/MovieModal.css';
 
 
-const MovieModal = (props) => {
+const MovieModal = ({movie, video, show, toggle}) => {
     return(
         <div>
+            
             <div className="modal_container"
                  style={{
-                    display: props.show ? 'block' : 'none',
+                    display: show ? 'block' : 'none',
                  }}>
-                <div className="header">
-                    <h3 className="modal_title">{props.movie.title ? props.movie.title : props.movie.name}</h3>
-                    <span className="close_btn" onClick={props.toggle}>&times;</span>
+                <div className="header" style={{
+                    background : movie.backdrop_src
+                }}>
+                    <h3 className="modal_title">{movie.title ? movie.title : movie.name}</h3>
+                    <span className="close_btn" onClick={toggle}>&times;</span>
+                </div>
+                <div className="video_container">
+                    {video ?
+                    <iframe src={video} 
+                            frameBorder="0"
+                        allowFullScreen
+                        className="video_player"/>
+                            : null}
                 </div>
                 <div className="body">
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <img className="modal_poster" src={props.movie.poster_src} />
+                                    <img className="modal_poster" src={movie.poster_src} alt="poster" />
                                 </td>
-                                <td/>
                                 <td>
-                                    <p className="overview">{props.movie.overview}</p>
+                                    <p className="overview">{movie.overview}</p>
                                     <br/>
-                                    <span className="rate">{props.movie.vote_average}</span>
-                                    <p className="release_date"> | {props.movie.release_date ? props.movie.release_date : props.movie.first_air_date}</p>
+                                    <span className="rate">{movie.vote_average}</span>
+                                    <p className="release_date"> | {movie.release_date ? movie.release_date : movie.first_air_date}</p>
                                 </td>
                             </tr>
+                            <tr>
+                                
+                            </tr>
                         </tbody>
+                                
                     </table>
                 </div>
             </div>
