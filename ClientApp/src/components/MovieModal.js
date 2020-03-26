@@ -9,10 +9,22 @@ const MovieModal = ({movie, video, show, toggle}) => {
             
             <div className="modal_container"
                  style={{
-                    display: show ? 'block' : 'none',
+                    display: show ? 'block' : 'none'
                  }}>
+                     <div className="video_container">
+                    {video ?
+                   <Player url={video}
+                            controls={true}
+                            light={true}
+                            playing={show}
+                            width="100%"
+                            light={movie.backdrop_src}
+                            playIcon
+                             />
+                            : null}
+                </div>
                 <div className="header" style={{
-                    background : movie.backdrop_src
+                    backgroundImage : movie.backdrop_src
                 }}>
                     <h3 className="modal_title">{movie.title ? movie.title : movie.name}</h3>
                     <span className="close_btn" onClick={toggle}>&times;</span>
@@ -39,15 +51,7 @@ const MovieModal = ({movie, video, show, toggle}) => {
                                 
                     </table>
                 </div>
-                <div className="video_container">
-                    {video ?
-                   <Player url={video}
-                            controls={true}
-                            light={true}
-                            playing={show}
-                             />
-                            : null}
-                </div>
+                
             </div>
         </div>
     )
