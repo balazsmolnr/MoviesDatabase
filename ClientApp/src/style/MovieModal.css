@@ -2,11 +2,11 @@
     background-color: rgba(0,0,0,0.9);
     z-index: 999;
     width: 60%;
-    position: fixed;
+    position: absolute;
     top: 10%;
     margin: auto;
     padding: 20px;
-    border-radius: 25px;
+    border-radius: 15px;
     border: solid #14d4db;
     border-width: 1px;
     left: 20%;

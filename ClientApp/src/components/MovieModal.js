@@ -17,14 +17,7 @@ const MovieModal = ({movie, video, show, toggle}) => {
                     <h3 className="modal_title">{movie.title ? movie.title : movie.name}</h3>
                     <span className="close_btn" onClick={toggle}>&times;</span>
                 </div>
-                <div className="video_container">
-                    {video ?
-                    <iframe src={video} 
-                            frameBorder="0"
-                        allowFullScreen
-                        className="video_player"/>
-                            : null}
-                </div>
+                
                 <div className="body">
                     <table>
                         <tbody>
@@ -45,6 +38,15 @@ const MovieModal = ({movie, video, show, toggle}) => {
                         </tbody>
                                 
                     </table>
+                </div>
+                <div className="video_container">
+                    {video ?
+                   <Player url={video}
+                            controls={true}
+                            light={true}
+                            playing={show}
+                             />
+                            : null}
                 </div>
             </div>
         </div>
