@@ -24,5 +24,5 @@ And their categories like:
 .
 etc.
 
-When you click on a movie/tv show card, a modal window pops up with some more detail like overview, rating, release date.
-Future plan is to add trailer video to the modal window.
+When you click on a movie/tv show card, a modal window pops up with some more detail like overview, rating, release date, genres.
+On the top of the modal window, there is a movie trailer.
