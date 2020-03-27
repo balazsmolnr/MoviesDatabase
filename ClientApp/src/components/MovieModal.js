@@ -3,7 +3,7 @@ import Player from 'react-player';
 import '../style/MovieModal.css';
 
 
-const MovieModal = ({movie, video, show, toggle}) => {
+const MovieModal = ({movie, video, show, toggle, genres}) => {
     return(
         <div>
             
@@ -15,17 +15,13 @@ const MovieModal = ({movie, video, show, toggle}) => {
                     {video ?
                    <Player url={video}
                             controls={true}
-                            light={true}
                             playing={show}
                             width="100%"
                             light={movie.backdrop_src}
-                            playIcon
                              />
                             : null}
                 </div>
-                <div className="header" style={{
-                    backgroundImage : movie.backdrop_src
-                }}>
+                <div className="header">
                     <h3 className="modal_title">{movie.title ? movie.title : movie.name}</h3>
                     <span className="close_btn" onClick={toggle}>&times;</span>
                 </div>
@@ -40,8 +36,9 @@ const MovieModal = ({movie, video, show, toggle}) => {
                                 <td>
                                     <p className="overview">{movie.overview}</p>
                                     <br/>
-                                    <span className="rate">{movie.vote_average}</span>
-                                    <p className="release_date"> | {movie.release_date ? movie.release_date : movie.first_air_date}</p>
+                                    <span className="modal_rate">{movie.vote_average}</span>
+                                    <p className="modal_release_date"> | {movie.release_date ? movie.release_date : movie.first_air_date}</p>
+                                    <p className="genres"> {genres ? genres.map(genre => <span>{genre}</span>) : null}</p>
                                 </td>
                             </tr>
                             <tr>

@@ -112,7 +112,7 @@
 
   }
 
-@media only screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
     .nav-area .menu-item{
         display: none;
       }
@@ -125,6 +125,22 @@
           position: relative;
           margin: 0 auto;
           width: 50%;
+      }
+
+      .nav-area a.icon {
+        float: right;
+        display: block;
+        
+      }
+}
+
+@media screen and (max-width: 700px) {
+    .nav-area .menu-item, .select-box, .search{
+        display: none;
+      }
+
+      .nav-area .home-btn {
+          float: left;
       }
 
       .nav-area a.icon {

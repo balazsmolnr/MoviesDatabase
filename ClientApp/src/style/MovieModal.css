@@ -1,7 +1,7 @@
 .modal_container {
     background-color: rgba(0,0,0,0.9);
     z-index: 999;
-    width:60%;
+    width:70%;
     position: absolute ;
     top: 10%;
     margin: auto;
@@ -9,7 +9,7 @@
     border-radius: 15px;
     border: solid #14d4db;
     border-width: 1px;
-    left: 20%;
+    left: 15%;
 }
 
 .video_container{
@@ -17,7 +17,7 @@
     border-radius: 20px;
 }
 
-.rate {
+.modal_rate {
     display: inline-block;
     /*margin-top: px;*/
     color: #555;
@@ -26,9 +26,10 @@
     border: 3px solid rgba(0,0,0,0.05);
     background-color: rgb(255, 230, 0);
     font-weight: bold;
+    margin-left: 30px;
 }
 
-.release_date {
+.modal_release_date {
     display: inline-block;
     color: #959595;
     margin-left: 10px;
@@ -45,6 +46,7 @@
 
 .overview{
     font-size: large;
+    margin-left: 30px;
 }
 
 
@@ -74,12 +76,11 @@
 }
 
 
-
 .close_btn {
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 25px;
+    top: 5px;
+    right: 15px;
     font-size: 30px;
 }
 

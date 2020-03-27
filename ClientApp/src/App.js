@@ -22,7 +22,6 @@ class App extends Component {
             searchValue : '',
             showModalReg : false,
             showModalLog : false,
-            videos : [],
             genres: null
         };
 
@@ -30,18 +29,6 @@ class App extends Component {
 
     }
 
-    componentDidMount = async() => {
-        let urlString = `https://api.themoviedb.org/3/genre/${this.state.selected_api}/list?api_key=${apiConfig.tmdbKey}&language=en-US`
-        
-        const response = await fetch(urlString);
-        const jsonResponse = await response.json();
-        this.setState({
-            genres : jsonResponse
-        })
-        console.log(jsonResponse)
-    }
-
-    
     fetchMovies = async (searchTerm) => {
         let urlString = "";
 
@@ -149,6 +136,7 @@ class App extends Component {
 
 
     render() {
+        console.log(this.state.genres)
         return (
             <div>
                 {this.state.showModalReg || this.state.showModalLog ? <div className="back-drop"></div> : null}
