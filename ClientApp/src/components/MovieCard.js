@@ -42,8 +42,6 @@ class MovieCard extends React.Component {
         this.setState({
             genres : genre_names
         });
-
-        console.log(this.state.genres)
     }
 
     handleModal() {
@@ -53,7 +51,7 @@ class MovieCard extends React.Component {
     render() {
         return (
             <div>
-                {this.state.show ?  <div className="back-drop"></div> : null}
+                {this.state.show ?  <div className="back-drop" onClick={() => {this.handleModal()}}></div> : null}
                 <MovieModal show={this.state.show} movie={this.props.movie} toggle={() => {this.handleModal()}} video={this.state.video} genres={this.state.genres}/>
                 <div onClick={() => { this.handleModal() }} className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                     <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />

@@ -22,7 +22,6 @@ class App extends Component {
             searchValue : '',
             showModalReg : false,
             showModalLog : false,
-            genres: null
         };
 
         this.fetchMovies();
@@ -136,7 +135,6 @@ class App extends Component {
 
 
     render() {
-        console.log(this.state.genres)
         return (
             <div>
                 {this.state.showModalReg || this.state.showModalLog ? <div className="back-drop"></div> : null}

@@ -2,7 +2,7 @@
     background-color: rgba(0,0,0,0.9);
     z-index: 999;
     width:70%;
-    position: absolute ;
+    position: fixed ;
     top: 10%;
     margin: auto;
     padding: 20px;
@@ -10,6 +10,10 @@
     border: solid #14d4db;
     border-width: 1px;
     left: 15%;
+    max-height: 100%;
+    overflow-y: auto;
+    bottom: 10%;
+
 }
 
 .video_container{
@@ -104,8 +108,19 @@
     color: #14d4db;
 }
 
-@media only screen and (max-width: 1000px){
-    .video_player {
-        width: 50%;
+@media only screen and (max-width: 768px){
+    .modal_container {
+        display: inline-block;
+        
+        
     }
+
+    .overview, .genres{
+        font-size: smaller;
+    }
+
+    .modal_title {
+        font-size: initial;
+    }
+
 }

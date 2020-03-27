@@ -112,7 +112,7 @@
 
   }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
     .nav-area .menu-item{
         display: none;
       }
@@ -134,7 +134,7 @@
       }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
     .nav-area .menu-item, .select-box, .search{
         display: none;
       }
@@ -146,6 +146,7 @@
       .nav-area a.icon {
         float: right;
         display: block;
+        cursor: pointer;
         
       }
 }

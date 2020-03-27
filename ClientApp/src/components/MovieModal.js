@@ -38,17 +38,12 @@ const MovieModal = ({movie, video, show, toggle, genres}) => {
                                     <br/>
                                     <span className="modal_rate">{movie.vote_average}</span>
                                     <p className="modal_release_date"> | {movie.release_date ? movie.release_date : movie.first_air_date}</p>
-                                    <p className="genres"> {genres ? genres.map(genre => <span className="genre-item">{genre}</span>) : null}</p>
+                                    <p className="genres"> {genres ? genres.map((genre, index) => <span key={index} className="genre-item">{genre}</span>) : null}</p>
                                 </td>
                             </tr>
-                            <tr>
-                                
-                            </tr>
                         </tbody>
-                                
                     </table>
                 </div>
-                
             </div>
         </div>
     )
