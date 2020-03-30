@@ -17,6 +17,7 @@ const RegistrationModal = (props) => {
                     <input className="input-field" placeholder="First name..."></input>
                     <input className="input-field" placeholder="Last name..."></input>
                     <input className="input-field" placeholder="E-mail..."></input>
+                    <input className="input-field" placeholder="Username..."></input>
                     <input className="input-field" placeholder="Password..."></input>
                     <input className="input-field" placeholder="Confirm password..."></input>
                 </div>
