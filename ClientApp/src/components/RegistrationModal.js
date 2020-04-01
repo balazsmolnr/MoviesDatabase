@@ -18,8 +18,8 @@ const RegistrationModal = (props) => {
                     <input className="input-field" placeholder="Last name..."></input>
                     <input className="input-field" placeholder="E-mail..."></input>
                     <input className="input-field" placeholder="Username..."></input>
-                    <input className="input-field" placeholder="Password..."></input>
-                    <input className="input-field" placeholder="Confirm password..."></input>
+                    <input type="password" className="input-field" placeholder="Password..."></input>
+                    <input type="password" className="input-field" placeholder="Confirm password..."></input>
                 </div>
                 <div className="footer">
                     <button className="btn-cancel" onClick={props.toggle}>Cancel</button>

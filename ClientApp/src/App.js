@@ -137,7 +137,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.showModalReg || this.state.showModalLog ? <div className="back-drop"></div> : null}
+                {this.state.showModalReg || this.state.showModalLog ? <div onClick={this.state.showModalReg ?  this.toggleModalReg : this.toggleModalLog} className="back-drop"></div> : null}
                 <NavMenu changeInput={this.changeHandler.bind(this)} 
                         changeCategory={this.changeCategory} 
                         changeApi={this.changeApi} 

@@ -15,7 +15,7 @@ const LoginModal = (props) => {
                 </div>
                 <div className="body">
                     <input className="input-field" placeholder="E-mail..."></input>
-                    <input className="input-field" placeholder="Password..."></input>
+                    <input type="password" className="input-field" placeholder="Password..."></input>
                 </div>
                 <div className="footer">
                     <button className="btn-cancel" onClick={props.toggle}>Cancel</button>

@@ -20,6 +20,11 @@ namespace MovieDatabase.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match!")]
+        public string ConfirmPassword { get; set; }
+
         [Required(ErrorMessage = "Email is required")]
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Email is not valid!")]
