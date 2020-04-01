@@ -56,8 +56,10 @@ class MovieCard extends React.Component {
                 <div onClick={() => { this.handleModal() }} className="movie_card" key={this.props.movie.id} id={this.props.movie.id}>
                     <img className="movie_poster" alt="poster" src={this.props.movie.poster_src} />
                     <h1 className="movie_title">{this.props.movie.title ? this.props.movie.title : this.props.movie.name}</h1>
-                    <span className="rate">{this.props.movie.vote_average}</span>
-                    <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
+                    <div className="movie_info">
+                        <span className="rate">{this.props.movie.vote_average}</span>
+                        <p className="release_date"> | {this.props.movie.release_date ? this.props.movie.release_date : this.props.movie.first_air_date}</p>
+                    </div>
                 </div>
             </div>
         )

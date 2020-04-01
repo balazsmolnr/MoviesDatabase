@@ -20,3 +20,9 @@
     justify-content: center;
     color: #d0cece;
 }
+
+@media only screen and (max-width: 768px){
+    .pageBtn{
+        margin-bottom: 0;
+    }
+}
