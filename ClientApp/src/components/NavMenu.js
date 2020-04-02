@@ -31,10 +31,6 @@ class NavMenu extends React.Component  {
     }
 
 
-    displaySearchBox() {
-        const searchBox = document.getElementsByClassName("search");
-    }
-
     render(){
         return (
             <nav className="nav-area">
@@ -60,8 +56,8 @@ class NavMenu extends React.Component  {
                     </select>
                 </ul>
                 <Search  className="search" changeInput={this.props.changeInput} />
-                <a className="search_icon" onClick={this.displaySearchBox}><i className="fa fa-search"></i></a>
-                <a className="menu_icon">&#9776;</a>
+                <a className="search_icon"><i className="fa fa-search"></i></a>
+                <a className="menu_icon" onClick={this.props.toggleSideMenu}>&#9776;</a>
             </nav>
         )
     }

@@ -6,6 +6,7 @@ import NavMenu from './components/NavMenu';
 import Pagination from './components/Pagination';
 import RegistrationModal from './components/RegistrationModal';
 import LoginModal from './components/LoginModal';
+import SideMenu from './components/SideMenu';
 
 class App extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
             searchValue : '',
             showModalReg : false,
             showModalLog : false,
+            showSideMenu: false
         };
 
         this.fetchMovies();
@@ -68,19 +70,6 @@ class App extends Component {
         })
     }
 
-
-    toggleModalReg = () => {
-        this.setState({
-            showModalReg: !this.state.showModalReg
-        })
-    }
-
-    toggleModalLog = () => {
-        this.setState({
-            showModalLog : !this.state.showModalLog
-        })
-    }
-
     changeHandler(event) {
         const searchTerm = event.target.value;
         this.setState({
@@ -89,7 +78,23 @@ class App extends Component {
         this.fetchMovies(this.state.searchValue);
     }
 
+    toggleModalReg = () => {
+        this.setState({
+            showModalReg: !this.state.showModalReg
+        });
+    };
 
+    toggleModalLog = () => {
+        this.setState({
+            showModalLog : !this.state.showModalLog
+        });
+    };
+
+    toggleSideMenu = () => {
+        this.setState({
+            showSideMenu : !this.state.showSideMenu
+        });
+    };
 
     nextPage = () => {
         if (this.state.searchValue === '' && this.state.page_num < this.state.total_pages) {
@@ -143,7 +148,9 @@ class App extends Component {
                         changeApi={this.changeApi} 
                         selected={this.state.selected_api} 
                         showRegModal={this.toggleModalReg} 
-                        showLogModal={this.toggleModalLog}/>
+                        showLogModal={this.toggleModalLog}
+                        toggleSideMenu={this.toggleSideMenu}/>
+                <SideMenu show={this.state.showSideMenu}/>
                 <RegistrationModal className="reg-modal" toggle={this.toggleModalReg} show={this.state.showModalReg}/>
                 <LoginModal className="log-modal" toggle={this.toggleModalLog} show={this.state.showModalLog} />
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>

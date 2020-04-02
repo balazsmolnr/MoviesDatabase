@@ -1,0 +1,36 @@
+.side-menu {
+    height: 100%;
+    background:rgba(0,0,0,0.9);
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 400px;
+    z-index: 200;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+}
+
+
+.side-menu ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-menu li {
+    margin: 0.5rem 0;
+}
+
+.side-menu a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.side-menu a:hover,
+.side-menu a:active {
+    color: grey;
+}
