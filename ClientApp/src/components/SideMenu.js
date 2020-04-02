@@ -10,9 +10,9 @@ const SideMenu = ({show, showLogModal, showRegModal}) => {
                 display: show ? 'block' : 'none'
             }}>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#" onClick={showLogModal}>Login</a></li>
-                <li><a href='#' onClick={showRegModal}>Register</a></li>
+                <li><a href="/"><i className="fa fa-home" id="home_icon"></i> Home</a></li>
+                <li><a href="#" onClick={showLogModal}><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
+                <li><a href='#' onClick={showRegModal}><i class="fa fa-id-card" aria-hidden="true"></i> Register</a></li>
             </ul>
         </nav>
     )
