@@ -150,7 +150,7 @@ class App extends Component {
                         showRegModal={this.toggleModalReg} 
                         showLogModal={this.toggleModalLog}
                         toggleSideMenu={this.toggleSideMenu}/>
-                <SideMenu show={this.state.showSideMenu}/>
+                <SideMenu show={this.state.showSideMenu} showLogModal={this.toggleModalLog} showRegModal={this.toggleModalReg}/>
                 <RegistrationModal className="reg-modal" toggle={this.toggleModalReg} show={this.state.showModalReg}/>
                 <LoginModal className="log-modal" toggle={this.toggleModalLog} show={this.state.showModalLog} />
                 <Pagination nextPage={this.nextPage} previousPage={this.previousPage}/>
