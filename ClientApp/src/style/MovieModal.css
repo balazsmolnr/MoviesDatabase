@@ -1,6 +1,6 @@
 .modal_container {
     background-color: rgba(0,0,0,0.9);
-    z-index: 999;
+    z-index: 2;
     width:70%;
     position: fixed ;
     top: 10%;
