@@ -7,8 +7,7 @@
     margin: auto;
     padding: 20px;
     border-radius: 25px;
-    border: solid #14d4db;
-    border-width: 1px;
+    border: 1px solid grey;
     left: 25%;    
 }
 
@@ -46,16 +45,18 @@
     top: 15px;
     right: 30px;
     font-size: 30px;
+    border-radius: 50%;
 }
 
 .close-btn:hover {
     color: #14d4db;
+    
 }
 
-.btn-cancel, .btn-register {
-    background: grey;
-    border: none;
-    color: black;
+.btn-cancel, .btn-submit {
+    background-color: rgba(0,0,0,.3);
+    border: 1px solid #999;
+    color: white;
     cursor: pointer;
     font-weight: bold;
     font-size: larger;
@@ -63,10 +64,22 @@
     padding: 10px;
     border-radius: 25px;
     margin: 10px;
+    filter: contrast(80%);
+    padding: 9px 20px 10px 20px;
 }
 
-.btn-cancel:hover, .btn-register:hover {
-    background: #14d4db;
+.btn-cancel:hover, .btn-submit:hover {
+    background-color: rgba(0,0,0,.7);
+    /* transform: scale(1.03); */
+    border: 1px solid #14d4db;
+    filter: contrast(100%);
+    transition: border 1s ease-out;
+    /* transition: background-color 1s ease-out;
+    transition: filter 0.3s ease-out; */
+}
+
+.btn-cancel:active, .btn-submit:active {
+    outline: none;
 }
 
 .footer {

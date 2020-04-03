@@ -19,7 +19,7 @@ const LoginModal = (props) => {
                 </div>
                 <div className="footer">
                     <button className="btn-cancel" onClick={props.toggle}>Cancel</button>
-                    <button className="btn-register">Login</button>
+                    <button className="btn-submit">Login</button>
                 </div>
             </div>
         </div>
